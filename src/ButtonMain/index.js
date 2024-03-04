@@ -12,9 +12,12 @@ const ButtonMain = () => {
     return (
         <div>
             {botaoVisivel && (
-                <button id='image-button' onClick={handleClick}>
-                    <img src='./imagens/button-main.png' id='image-button-style' draggable="false" />
-                </button>
+                <>
+                    <h2>Iniciar Formulário:</h2>
+                    <button id='image-button' onClick={handleClick}>
+                        <img src='./imagens/button-main.png' id='image-button-style' draggable="false" />
+                    </button>
+                </>
             )}
         </div>
     );
