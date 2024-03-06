@@ -1,23 +1,26 @@
 import React, { useState } from "react";
 import Formulario from "../Formulario";
-import './ButtonMain.css'
+import './ButtonMain.css';
 
 const ButtonMain = () => {
     const [buttonType, setButtonType] = useState(true);
 
     const handleButtonClick = () => {
-        setButtonType(!buttonType);
+        setButtonType(false); 
     };
 
     return (
         <div>
             {buttonType ? (
-                <div>
-                    <button id='image-button'onClick={handleButtonClick}>
-                    </button>
-                </div>
+                <button
+                    id='image-button'
+                    className={buttonType ? "" : "hide"}
+                    onClick={handleButtonClick}
+                >
+                    Mostrar Formulário
+                </button>
             ) : (
-                <Formulario/>
+                <Formulario />
             )}
         </div>
     );

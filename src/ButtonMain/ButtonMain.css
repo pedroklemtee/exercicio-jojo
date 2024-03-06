@@ -21,6 +21,18 @@ body {
     border-radius: 50%;
 }
 
+/* ButtonMain.css */
+#image-button {
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Adicione uma transição suave */
+}
+
+#image-button.hide {
+    opacity: 0;
+    pointer-events: none; /* Impede que o botão seja clicado quando estiver invisível */
+}
+
+
 #image-button:before {
     content: '';
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
@@ -76,3 +88,4 @@ body {
         background-position: 0 0;
     }
 }
+
