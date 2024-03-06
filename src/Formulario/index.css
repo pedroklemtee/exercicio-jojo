@@ -3,4 +3,23 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 100vh;
+    margin: 0;
+    width: 200vh;
+}
+
+.container-personagens {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.194);
+}
+
+.container-personagens__dentro {
+    height: 580px;
+    width: 500px;
+    background-color: rgb(171, 52, 52);
 }
