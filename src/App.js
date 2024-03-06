@@ -5,7 +5,7 @@ import ButtonMain from './ButtonMain';
 function App() {
   return (
     <div className="App">
-      <ButtonMain />
+      <ButtonMain/>
     </div>
   );
 }
