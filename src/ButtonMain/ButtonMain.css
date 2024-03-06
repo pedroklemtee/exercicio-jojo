@@ -92,7 +92,7 @@ body {
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 28px;
     color: red;
     text-align: center;
     position: absolute;
@@ -100,9 +100,21 @@ h2 {
     left: 50%;
     transform: translateX(-50%); /* Centraliza horizontalmente */
     z-index: 1; /* Garante que o título fique sobre o botão */
+    animation: blinking 1s infinite; /* Define a animação */
 }
 
 /* Classe para esconder o título */
 .hidden {
     display: none;
+}
+@keyframes blinking {
+    0% {
+        opacity: 1; /* Tornar visível */
+    }
+    50% {
+        opacity: 0; /* Tornar invisível */
+    }
+    100% {
+        opacity: 1; /* Tornar visível novamente */
+    }
 }
