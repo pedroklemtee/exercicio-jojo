@@ -13,6 +13,8 @@ const Formulario = () => {
   ];
 
   const [indicePergunta, setIndicePergunta] = useState(0);
+  const [respostas, setRespostas] = useState({});
+
 
   console.log(indicePergunta)
 
