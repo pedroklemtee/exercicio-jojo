@@ -8,7 +8,21 @@ const Formulario = () => {
       pergunta: 'Qual é a capital do Brasil?',
       alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
     },
-    // Adicione mais perguntas conforme necessário
+
+    {
+        pergunta: 'testa',
+        alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
+      },
+
+      {
+        pergunta: 'dasdassd',
+        alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
+      },
+
+      {
+        pergunta: 'vasadvsasvd',
+        alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
+      },
   ];
 
   const [indicePergunta, setIndicePergunta] = useState(0);
