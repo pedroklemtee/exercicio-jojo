@@ -1,9 +1,10 @@
 body {
     margin: 0;
     padding: 0;
-    background-size: cover; /* faz a imagem cobrir toda a área disponível */
-    background-position: center; /* centraliza a imagem */
-    background-attachment: fixed; /* fixa a imagem no fundo, para que não role com a página */
+    background-image: url('./Assets/Jojo2.jpg');
+    background-size: cover; /* faz a imagem cobrir toda a área disponível /
+    background-position: center; / centraliza a imagem /
+    background-attachment: fixed; / fixa a imagem no fundo, para que não role com a página */
 }
 
 #image-button-style {
