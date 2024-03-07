@@ -15,11 +15,17 @@ body{
     flex-direction: column;
     width: 600px;
     height: 700px;
+    margin: 1rem;
     background-color: rgba(0, 0, 0, 0.194);
 }
 
 .container-personagens__dentro {
     height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
     width: 500px;
     background-color: rgb(171, 52, 52);
 }

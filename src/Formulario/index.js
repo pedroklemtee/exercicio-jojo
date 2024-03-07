@@ -1,35 +1,70 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Resultado from '../Resultado';
+import Personagens from '../Personagens/Personagens';
 import './index.css';
 
 const Formulario = () => {
   const perguntas = [
     {
-      pergunta: 'Qual é a capital do Brasil?',
-      alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
+      pergunta: 'Qual dessas comidas você prefere?',
+      alternativas: ['Strogonoff', 'Sushi', 'Feijoada', 'Pizza'],
     },
-
     {
-        pergunta: 'testa',
-        alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
-      },
-
-      {
-        pergunta: 'dasdassd',
-        alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
-      },
-
-      {
-        pergunta: 'vasadvsasvd',
-        alternativas: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
-      },
+      pergunta: 'O que você mais gosta de fazer?',
+      alternativas: ['Esportes', 'Jogar Video Game', 'Cantar', 'Assistir a uma Série'],
+    },
+    {
+      pergunta: 'Se fosse para você ser um animal:',
+      alternativas: ['Passaro', 'Cobra', 'Elefante', 'Sapo'],
+    },
+    // Adicione mais perguntas conforme necessário
   ];
 
   const [indicePergunta, setIndicePergunta] = useState(0);
   const [respostas, setRespostas] = useState({});
   const [questionarioConcluido, setQuestionarioConcluido] = useState(false);
-  const navigate = useNavigate();
+  const [personagemFinal, setPersonagemFinal] = useState(null);
 
+  useEffect(() => {
+    const resultadoPersonagem = determinarPersonagem(respostas);
+    setPersonagemFinal(resultadoPersonagem);
+  }, [questionarioConcluido, respostas]);
+
+  const determinarPersonagem = (respostas) => {
+    const respostasArray = Object.values(respostas);
+  
+    // Verifique se o array de respostas não está vazio
+    if (respostasArray.length === 0) {
+      return Personagens[0]; // Ou qualquer lógica padrão que você deseja aplicar
+    }
+  
+    // Lógica para contar a quantidade de cada resposta
+    const contagemAlternativas = respostasArray.reduce((acc, resposta) => {
+      if (typeof resposta === 'number') {
+        acc[resposta] = (acc[resposta] || 0) + 1;
+      }
+      return acc;
+    }, {});
+  
+    // Determine o personagem com base nas escolhas mais frequentes
+    if (contagemAlternativas[0] >= 2) {
+      return Personagens[0];
+    } else if (contagemAlternativas[1] >= 2) {
+      return Personagens[1];
+    } else if (contagemAlternativas[2] >= 2) {
+      return Personagens[2];
+    } else if (contagemAlternativas[3] >= 2) {
+      return Personagens[3];
+    } else if (contagemAlternativas[4] >= 2) {
+      return Personagens[4];
+    } else if (contagemAlternativas[5] >= 2) {
+      return Personagens[5];
+    } else {
+      // Se não houver escolhas suficientes, escolha o primeiro personagem
+      return Personagens[0];
+    }
+  };
+  
   const handleRespostaChange = (perguntaIndex, alternativaIndex) => {
     setRespostas({
       ...respostas,
@@ -46,37 +81,41 @@ const Formulario = () => {
   };
 
   useEffect(() => {
-    if (questionarioConcluido) {
-      navigate(`/resultado?respostas=${JSON.stringify(respostas)}`);
-    }
-  }, [questionarioConcluido, respostas, navigate]);
+    const resultadoFinal = personagemFinal ? personagemFinal.nome : 'Personagem Padrão';
+    // Lógica para determinar o resultado com base nas respostas
+  }, [questionarioConcluido, personagemFinal]);
+  
 
   return (
     <div className='container-personagens'>
-      {perguntas.map((pergunta, index) => (
-        <div key={index} style={{ display: index === indicePergunta ? 'block' : 'none' }}>
-          <h1>{pergunta.pergunta}</h1>
-          <div className='container-personagens__dentro'>
-            {pergunta.alternativas.map((alternativa, optionIndex) => (
-              <label key={optionIndex}>
-                <input
-                  type='radio'
-                  name={`pergunta-${index}`}
-                  value={`opcao${optionIndex}`}
-                  checked={respostas[index] === optionIndex}
-                  onChange={() => handleRespostaChange(index, optionIndex)}
-                />
-                {alternativa}
-              </label>
-            ))}
-            {index === perguntas.length - 1 ? (
-              <button onClick={proximaPergunta}>Finalizar</button>
-            ) : (
-              <button onClick={proximaPergunta}>Próxima Pergunta</button>
-            )}
+      {questionarioConcluido ? (
+        <Resultado personagemFinal={personagemFinal} />
+      ) : (
+        perguntas.map((pergunta, index) => (
+          <div key={index} style={{ display: index === indicePergunta ? 'block' : 'none' }}>
+            <h1>{pergunta.pergunta}</h1>
+            <div className='container-personagens__dentro'>
+              {pergunta.alternativas.map((alternativa, optionIndex) => (
+                <label key={optionIndex}>
+                  <input
+                    type='radio'
+                    name={`pergunta-${index}`}
+                    value={`opcao${optionIndex}`}
+                    checked={respostas[index] === optionIndex}
+                    onChange={() => handleRespostaChange(index, optionIndex)}
+                  />
+                  {alternativa}
+                </label>
+              ))}
+              {index === perguntas.length - 1 ? (
+                <button onClick={proximaPergunta}>Finalizar</button>
+              ) : (
+                <button onClick={proximaPergunta}>Próxima Pergunta</button>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
 };
