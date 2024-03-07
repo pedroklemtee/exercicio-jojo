@@ -1,0 +1,13 @@
+#resetarButton {
+
+    width: 100px;
+}
+
+.resultado-container{
+    width: 500px;
+    height: 570px;
+    display: flex;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+}

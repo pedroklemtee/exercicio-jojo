@@ -24,20 +24,28 @@ const Formulario = () => {
   const [respostas, setRespostas] = useState({});
   const [questionarioConcluido, setQuestionarioConcluido] = useState(false);
   const [personagemFinal, setPersonagemFinal] = useState(null);
+  const [resultadoFinal, setResultadoFinal] = useState('');
 
   useEffect(() => {
     const resultadoPersonagem = determinarPersonagem(respostas);
     setPersonagemFinal(resultadoPersonagem);
-  }, [questionarioConcluido, respostas]);
+  }, [respostas]);
+
+  useEffect(() => {
+    if (questionarioConcluido && personagemFinal) {
+      const resultadoFinalTexto = personagemFinal.nome || 'Personagem Padrão';
+      setResultadoFinal(resultadoFinalTexto);
+    }
+  }, [questionarioConcluido, personagemFinal]);
 
   const determinarPersonagem = (respostas) => {
     const respostasArray = Object.values(respostas);
-  
+
     // Verifique se o array de respostas não está vazio
     if (respostasArray.length === 0) {
       return Personagens[0]; // Ou qualquer lógica padrão que você deseja aplicar
     }
-  
+
     // Lógica para contar a quantidade de cada resposta
     const contagemAlternativas = respostasArray.reduce((acc, resposta) => {
       if (typeof resposta === 'number') {
@@ -45,26 +53,19 @@ const Formulario = () => {
       }
       return acc;
     }, {});
-  
+
     // Determine o personagem com base nas escolhas mais frequentes
-    if (contagemAlternativas[0] >= 2) {
-      return Personagens[0];
-    } else if (contagemAlternativas[1] >= 2) {
-      return Personagens[1];
-    } else if (contagemAlternativas[2] >= 2) {
-      return Personagens[2];
-    } else if (contagemAlternativas[3] >= 2) {
-      return Personagens[3];
-    } else if (contagemAlternativas[4] >= 2) {
-      return Personagens[4];
-    } else if (contagemAlternativas[5] >= 2) {
-      return Personagens[5];
-    } else {
-      // Se não houver escolhas suficientes, escolha o primeiro personagem
-      return Personagens[0];
-    }
+    const personagemEscolhido = Personagens.reduce((escolhido, personagem, index) => {
+      if (contagemAlternativas[index] >= 1) {
+        return personagem;
+      }
+      return escolhido;
+    }, null);
+
+    // Se não houver escolhas suficientes, escolha o primeiro personagem
+    return personagemEscolhido || Personagens[0];
   };
-  
+
   const handleRespostaChange = (perguntaIndex, alternativaIndex) => {
     setRespostas({
       ...respostas,
@@ -80,16 +81,18 @@ const Formulario = () => {
     }
   };
 
-  useEffect(() => {
-    const resultadoFinal = personagemFinal ? personagemFinal.nome : 'Personagem Padrão';
-    // Lógica para determinar o resultado com base nas respostas
-  }, [questionarioConcluido, personagemFinal]);
-  
+  const reiniciarFormulario = () => {
+    setIndicePergunta(0);
+    setRespostas({});
+    setQuestionarioConcluido(false);
+    setPersonagemFinal(null);
+    setResultadoFinal('');
+  };
 
   return (
     <div className='container-personagens'>
       {questionarioConcluido ? (
-        <Resultado personagemFinal={personagemFinal} />
+        <Resultado personagem={personagemFinal} resultadoFinal={resultadoFinal} onReiniciar={reiniciarFormulario} />
       ) : (
         perguntas.map((pergunta, index) => (
           <div key={index} style={{ display: index === indicePergunta ? 'block' : 'none' }}>
