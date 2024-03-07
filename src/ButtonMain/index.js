@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Formulario from "../Formulario";
 import './ButtonMain.css';
 
+
 const ButtonMain = () => {
     const [buttonType, setButtonType] = useState(true);
     const [hideTitle, setHideTitle] = useState(false);
