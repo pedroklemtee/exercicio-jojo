@@ -14,7 +14,7 @@ const Formulario = () => {
       alternativas: ['Esportes', 'Jogar Video Game', 'Cantar', 'Assistir a uma Série'],
     },
     {
-      pergunta: 'Se fosse para você ser um animal:',
+      pergunta: 'Escolha um animal:',
       alternativas: ['Passaro', 'Cobra', 'Elefante', 'Sapo'],
     },
     // Adicione mais perguntas conforme necessário
