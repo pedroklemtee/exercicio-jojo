@@ -95,8 +95,8 @@ const Formulario = () => {
       ) : (
         perguntas.map((pergunta, index) => (
           <div key={index} style={{ display: index === indicePergunta ? 'block' : 'none' }}>
-            <h1 id='h1-formulario'>{pergunta.pergunta}</h1>
             <div className='container-personagens__dentro'>
+            <h1 id='h1-formulario'>{pergunta.pergunta}</h1>
               {pergunta.alternativas.map((alternativa, optionIndex) => (
                   <label key={optionIndex}>
                     <input

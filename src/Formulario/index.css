@@ -59,7 +59,7 @@ body{
     align-items: center;
     font-family: poppins;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     flex-direction: column;
     width: 500px;
     background-color: rgb(255, 255, 255);

@@ -30,15 +30,14 @@ body {
     border-radius: 50%;
 }
 
-/* ButtonMain.css */
 #image-button {
     opacity: 1;
-    transition: opacity 0.3s ease; /* Adicione uma transição suave */
+    transition: opacity 0.3s ease; 
 }
 
 #image-button.hide {
     opacity: 0;
-    pointer-events: none; /* Impede que o botão seja clicado quando estiver invisível */
+    pointer-events: none; 
 }
 
 
@@ -103,12 +102,13 @@ h2 {
     font-family: Madimi One;
     color: rgb(250, 250, 250);
     text-align: center;
+    margin-bottom: 1px;
     position: absolute;
-    top: calc(45% - 120px); /* Posiciona o título acima do botão */
+    top: calc(45% - 120px); 
     left: 50%;
-    transform: translateX(-50%); /* Centraliza horizontalmente */
-    z-index: 1; /* Garante que o título fique sobre o botão */
-    animation: blinking 2s infinite; /* Define a animação */
+    transform: translateX(-50%); 
+    z-index: 1; 
+    animation: blinking 2s infinite; 
 }
 
 /* Classe para esconder o título */
