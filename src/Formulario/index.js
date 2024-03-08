@@ -17,7 +17,6 @@ const Formulario = () => {
       pergunta: 'Escolha um animal:',
       alternativas: ['Passaro', 'Cobra', 'Elefante', 'Sapo'],
     },
-    // Adicione mais perguntas conforme necessário
   ];
 
   const [indicePergunta, setIndicePergunta] = useState(0);
@@ -40,29 +39,44 @@ const Formulario = () => {
 
   const determinarPersonagem = (respostas) => {
     const respostasArray = Object.values(respostas);
-
+  
     if (respostasArray.length === 0) {
       return Personagens[0]; 
     }
-
-    // Lógica para contar a quantidade de cada resposta
+  
     const contagemAlternativas = respostasArray.reduce((acc, resposta) => {
       if (typeof resposta === 'number') {
         acc[resposta] = (acc[resposta] || 0) + 1;
       }
       return acc;
     }, {});
-
-    // Determine o personagem com base nas escolhas mais frequentes
-    const personagemEscolhido = Personagens.reduce((escolhido, personagem, index) => {
-      if (contagemAlternativas[index] >= 1) {
-        return personagem;
+  
+    let alternativaMaisSelecionada = 0;
+    let maiorContagem = 0;
+  
+    Object.keys(contagemAlternativas).forEach((alternativaIndex) => {
+      const contagem = contagemAlternativas[alternativaIndex];
+      if (contagem > maiorContagem) {
+        maiorContagem = contagem;
+        alternativaMaisSelecionada = parseInt(alternativaIndex, 10);
       }
-      return escolhido;
-    }, null);
-
-    // Se não houver escolhas suficientes, escolha o primeiro personagem
-    return personagemEscolhido || Personagens[0];
+    });
+  
+    let personagemEncontrado;
+  
+    if (alternativaMaisSelecionada === 0) {
+      personagemEncontrado = Personagens[1];
+    } else if (alternativaMaisSelecionada === 1) {
+      personagemEncontrado = Personagens[2];
+    } else if (alternativaMaisSelecionada === 2) {
+      personagemEncontrado = Personagens[3];
+    } else if (alternativaMaisSelecionada === 3) {
+      personagemEncontrado = Personagens[4];
+    } else {
+      personagemEncontrado = Personagens[0]; 
+    }
+  
+    return personagemEncontrado;
   };
 
   const handleRespostaChange = (perguntaIndex, alternativaIndex) => {
@@ -96,21 +110,21 @@ const Formulario = () => {
         perguntas.map((pergunta, index) => (
           <div key={index} style={{ display: index === indicePergunta ? 'block' : 'none' }}>
             <div className='container-personagens__dentro'>
-            <h1 id='h1-formulario'>{pergunta.pergunta}</h1>
+              <h1 id='h1-formulario'>{pergunta.pergunta}</h1>
               {pergunta.alternativas.map((alternativa, optionIndex) => (
-                  <label key={optionIndex}>
-                    <input
-                      type='radio'
-                      name={`pergunta-${index}`}
-                      value={`opcao${optionIndex}`}
-                      checked={respostas[index] === optionIndex}
-                      onChange={() => handleRespostaChange(index, optionIndex)}
-                    />
-                    {alternativa}
-                  </label>
+                <label key={optionIndex}>
+                  <input
+                    type='radio'
+                    name={`pergunta-${index}`}
+                    value={`opcao${optionIndex}`}
+                    checked={respostas[index] === optionIndex}
+                    onChange={() => handleRespostaChange(index, optionIndex)}
+                  />
+                  {alternativa}
+                </label>
               ))}
               {index === perguntas.length - 1 ? (
-                <button id='button-44'onClick={proximaPergunta}>Finalizar</button>
+                <button id='button-44' onClick={proximaPergunta}>Finalizar</button>
               ) : (
                 <button id='button-33' onClick={proximaPergunta}>Próxima Pergunta</button>
               )}

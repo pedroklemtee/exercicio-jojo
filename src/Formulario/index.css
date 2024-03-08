@@ -49,7 +49,7 @@ body{
 
 .glow:after{
     filter: blur(30px)
-    opacity(0.99)
+    opacity(0.9)
 }
 
 .container-personagens__dentro {

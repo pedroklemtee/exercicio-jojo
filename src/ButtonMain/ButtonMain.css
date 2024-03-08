@@ -5,9 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-    background-size: cover; /* faz a imagem cobrir toda a área disponível /
-    background-position: center; / centraliza a imagem /
-    background-attachment: fixed; / fixa a imagem no fundo, para que não role com a página */
+    background-size: cover; 
 }
 
 #image-button-style {
@@ -111,18 +109,17 @@ h2 {
     animation: blinking 2s infinite; 
 }
 
-/* Classe para esconder o título */
 .hidden {
     display: none;
 }
 @keyframes blinking {
     0% {
-        opacity: 1; /* Tornar visível */
+        opacity: 1; 
     }
     50% {
-        opacity: 0; /* Tornar invisível */
+        opacity: 0; 
     }
     100% {
-        opacity: 1; /* Tornar visível novamente */
+        opacity: 1; 
     }
 }
