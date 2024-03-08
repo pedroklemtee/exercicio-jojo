@@ -7,9 +7,8 @@ const Resultado = ({ personagem, resultadoFinal, onReiniciar }) => {
       <h1>Resultado Final:</h1>
       {personagem && (
         <div>
-          <h2>{personagem.nome}</h2>
-          {personagem.img && <img src={personagem.img} alt={`Imagem de ${personagem.nome}`} />}
           <p>{personagem.descricao}</p>
+          {personagem.img && <img src={personagem.img} alt={`Imagem de ${personagem.nome}`} />}
         </div>
       )}
       <p>{resultadoFinal}</p>

@@ -17,11 +17,12 @@ const ButtonMain = () => {
             <h2 className={hideTitle ? "hidden" : ""}>Iniciar Formulário</h2>
             {buttonType ? (
                 <button
+                    
                     id='image-button'
                     className={buttonType ? "" : "hide"}
                     onClick={handleButtonClick}
                 >
-                    Mostrar Formulário
+                <img id='image-button_style' src="./imagens/button-main.png"/>
                 </button>
             ) : (
                 <Formulario />

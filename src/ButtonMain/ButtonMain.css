@@ -12,6 +12,10 @@ body {
     cursor: pointer;
 }
 
+#image-button_style{
+    width: 150px;
+}
+
 #image-button {
     width: 200px;
     height: 200px;
