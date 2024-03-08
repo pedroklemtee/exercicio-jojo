@@ -9,7 +9,7 @@ const Personagens = [
 
     {
         nome: 'Jonathan Joestar',
-        descricao: 'Você é muito parecido com o personagem principal da série! Treinado na arte do Hamon por seu mestre Zeppeli, Jonathan enfrenta uma série de desafios sobrenaturais para derrotar Dio e garantir a segurança de todos. Você tem uma jornada e uma batalha épica entre o bem e o mal, culminando em um confronto final de proporções lendárias. Como características semelhantes temos: s a honestidade, gentileza e a positividade sempre. Eai, se identificou? ',
+        descricao: 'Você é muito parecido com o personagem principal da série! Treinado na arte do Hamon por seu mestre Zeppeli, Jonathan enfrenta uma série de desafios sobrenaturais para derrotar Dio e garantir a segurança de todos. Você tem uma jornada e uma batalha épica entre o bem e o mal, culminando em um confronto final de proporções lendárias. Como características semelhantes temos: a honestidade, gentileza e a positividade sempre. Eai, se identificou? ',
         img: './PersonagensImagens/Jonathan.png'
     },
 

@@ -18,6 +18,11 @@
 #descricao {
     font-size: 14px;
     font-family: poppins;
+    text-align: center;
+}
+
+#resultado-final-style {
+    font-family: poppins;
 }
 
 #personagem-style {
