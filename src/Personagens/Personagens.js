@@ -3,7 +3,7 @@
 const Personagens = [
     {
         nome: 'Dio Brando (DIO)',
-        descricao: 'Ele é apresentado como um órfão com ambições desmedidas que se torna o meio-irmão adotivo de Jonathan Joestar. Após se transformar em um vampiro, busca dominância e imortalidade, desencadeando uma série de eventos que afetam várias gerações dos Joestars. Sua personalidade é marcada pela crueldade, manipulação e uma busca incessante por poder, tornando-o um dos vilões mais memoráveis e icônicos da série.',
+        descricao: 'Ele é apresentado como um órfão com ambições desmedidas que se torna o meio-irmão adotivo de Jonathan Joestar. Após se transformar em um vampiro, busca dominância e imortalidade, desencadeando uma série de eventos que afetam várias gerações dos Joestars. Você é muito semelhante em personalidade com o personagem, sua índole é marcada pela crueldade, manipulação e uma busca incessante por poder, tornando-o um dos vilões mais memoráveis e icônicos da série. Eai, se identificou?',
         img: './PersonagensImagens/Dio.png'
     },
 

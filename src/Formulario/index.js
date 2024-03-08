@@ -41,9 +41,8 @@ const Formulario = () => {
   const determinarPersonagem = (respostas) => {
     const respostasArray = Object.values(respostas);
 
-    // Verifique se o array de respostas não está vazio
     if (respostasArray.length === 0) {
-      return Personagens[0]; // Ou qualquer lógica padrão que você deseja aplicar
+      return Personagens[0]; 
     }
 
     // Lógica para contar a quantidade de cada resposta
@@ -90,25 +89,25 @@ const Formulario = () => {
   };
 
   return (
-    <div className='container-personagens'>
+    <div className='container-personagens glow'>
       {questionarioConcluido ? (
         <Resultado personagem={personagemFinal} resultadoFinal={resultadoFinal} onReiniciar={reiniciarFormulario} />
       ) : (
         perguntas.map((pergunta, index) => (
           <div key={index} style={{ display: index === indicePergunta ? 'block' : 'none' }}>
-            <h1>{pergunta.pergunta}</h1>
+            <h1 id='h1-formulario'>{pergunta.pergunta}</h1>
             <div className='container-personagens__dentro'>
               {pergunta.alternativas.map((alternativa, optionIndex) => (
-                <label key={optionIndex}>
-                  <input
-                    type='radio'
-                    name={`pergunta-${index}`}
-                    value={`opcao${optionIndex}`}
-                    checked={respostas[index] === optionIndex}
-                    onChange={() => handleRespostaChange(index, optionIndex)}
-                  />
-                  {alternativa}
-                </label>
+                  <label key={optionIndex}>
+                    <input
+                      type='radio'
+                      name={`pergunta-${index}`}
+                      value={`opcao${optionIndex}`}
+                      checked={respostas[index] === optionIndex}
+                      onChange={() => handleRespostaChange(index, optionIndex)}
+                    />
+                    {alternativa}
+                  </label>
               ))}
               {index === perguntas.length - 1 ? (
                 <button id='button-44'onClick={proximaPergunta}>Finalizar</button>
