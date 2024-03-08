@@ -111,9 +111,9 @@ const Formulario = () => {
                 </label>
               ))}
               {index === perguntas.length - 1 ? (
-                <button onClick={proximaPergunta}>Finalizar</button>
+                <button id='button-44'onClick={proximaPergunta}>Finalizar</button>
               ) : (
-                <button onClick={proximaPergunta}>Próxima Pergunta</button>
+                <button id='button-33' onClick={proximaPergunta}>Próxima Pergunta</button>
               )}
             </div>
           </div>

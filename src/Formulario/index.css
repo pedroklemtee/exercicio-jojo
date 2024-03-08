@@ -12,20 +12,48 @@ body{
     padding: 10px;
     display: flex;
     align-items: center;
+    border-radius: 1rem;
     flex-direction: column;
     width: 600px;
     height: 700px;
     margin: 1rem;
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
 }
 
 .container-personagens__dentro {
     height: 580px;
+    text-align: start;
     display: flex;
     align-items: center;
+    font-family: poppins;
     justify-content: center;
     gap: 10px;
     flex-direction: column;
     width: 500px;
-    background-color: rgb(171, 52, 52);
+    background-color: rgb(255, 255, 255);
+}
+
+
+#button-33, #button-44, #button-55 {
+  background-color: #aa01ff;
+  border-radius: 100px;
+  box-shadow: rgba(137, 0, 179, 0.2) 0 -25px 18px -14px inset,rgba(139, 0, 179, 0.2) 0 1px 2px,rgba(132, 0, 179, 0.2) 0 2px 4px,rgba(187, 1, 255, 0.2) 0 4px 8px,rgba(130, 0, 179, 0.2) 0 8px 16px,rgba(137, 0, 179, 0.2) 0 16px 32px;
+  color: rgb(240, 199, 255);
+  cursor: pointer;
+  display: inline-block;
+  font-family: poppins;
+  padding: 7px 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#button-33:hover, #button-44:hover,#button-55:hover {
+  box-shadow: rgba(221, 0, 255, 0.35) 0 -25px 18px -14px inset,rgba(238, 0, 255, 0.25) 0 1px 2px,rgba(221, 0, 255, 0.35) 0 2px 4px,rgba(221, 0, 255, 0.35) 0 4px 8px,rgba(137, 0, 179, 0.2) 0 8px 16px,rgba(197, 6, 255, 0.2) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }

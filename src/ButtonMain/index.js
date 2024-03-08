@@ -17,7 +17,7 @@ const ButtonMain = () => {
             <h2 className={hideTitle ? "hidden" : ""}>Iniciar Formulário</h2>
             {buttonType ? (
                 <button
-                    
+                    draggable = 'false'
                     id='image-button'
                     className={buttonType ? "" : "hide"}
                     onClick={handleButtonClick}

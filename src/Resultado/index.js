@@ -12,7 +12,7 @@ const Resultado = ({ personagem, resultadoFinal, onReiniciar }) => {
         </div>
       )}
       <p>{resultadoFinal}</p>
-      <button onClick={onReiniciar}>Reiniciar</button>
+      <button id='button-55'onClick={onReiniciar}>Reiniciar</button>
     </div>
   );
 };
